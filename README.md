@@ -1,4 +1,4 @@
-# Dotfiles (Nicolas Gallagher)
+# Dotfiles (Simon Boudrias)
 
 My OS X dotfiles.
 
@@ -10,7 +10,7 @@ Tools](https://developer.apple.com/downloads) and may overwrite existing
 dotfiles in your HOME and `.vim` directories.
 
 ```bash
-$ bash -c "$(curl -fsSL raw.github.com/necolas/dotfiles/master/bin/dotfiles)"
+$ bash -c "$(curl -fsSL raw.github.com/sboudrias/dotfiles/master/bin/dotfiles)"
 ```
 
 N.B. If you wish to fork this project and maintain your own dotfiles, you must
@@ -256,6 +256,7 @@ changes made to those submodules.
 
 Inspiration and code was taken from many sources, including:
 
+* [@necolas](https://github.com/necolas)
 * [@mathiasbynens](https://github.com/mathiasbynens) (Mathias Bynens)
   [https://github.com/mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
 * [@tejr](https://github.com/tejr) (Tom Ryder)
