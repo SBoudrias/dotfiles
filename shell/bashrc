@@ -3,3 +3,9 @@
 # bashrc
 
 [ -n "$PS1" ] && source ~/.bash_profile
+
+# Source virutalenv wrapper
+source /usr/local/bin/virtualenvwrapper.sh
+
+# This loads NVM
+[[ -s /Users/sboudrias/.nvm/nvm.sh ]] && . /Users/sboudrias/.nvm/nvm.sh
