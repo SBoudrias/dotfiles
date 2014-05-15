@@ -68,3 +68,10 @@
 
 [push]
     default = simple
+
+[user]
+    email = admin@simonboudrias.com
+    name = Simon Boudrias
+
+[help]
+  autocorrect = 5
