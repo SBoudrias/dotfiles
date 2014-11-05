@@ -13,7 +13,6 @@ silent! call pathogen#infect()
 
 " display options {
     syntax on               "syntax coloring is a first-cut debugging tool
-    colorscheme railscasts "change to taste. try `desert' or `evening'
 
     set wrap                "wrap long lines
     set scrolloff=3         "keep three lines visible above and below
