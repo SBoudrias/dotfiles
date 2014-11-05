@@ -11,6 +11,57 @@ silent! runtime bundle/vim-pathogen/autoload/pathogen.vim
 " Call pathogen plugin management
 silent! call pathogen#infect()
 
+" display options {
+    syntax on               "syntax coloring is a first-cut debugging tool
+    colorscheme railscasts "change to taste. try `desert' or `evening'
+
+    set wrap                "wrap long lines
+    set scrolloff=3         "keep three lines visible above and below
+    set ruler showcmd       "give line, column, and command in the status line
+    set laststatus=2        "always show the status line
+                            "make filename-completion more terminal-like
+    set wildmode=longest:full
+    set wildmenu            "a menu for resolving ambiguous tab-completion
+                            "files we never want to edit
+    set wildignore=*.pyc,*.sw[pno],.*.bak,.*.tmp
+    set number
+
+    set formatoptions+=r
+" }
+
+" movement options {
+    "enable mouse in normal, visual, help, prompt modes
+    "I skip insert/command modes because it prevents proper middle-click pasting
+    "TODO: can we get paste to work even with mouse enabled?
+    set mouse=nvrhi
+
+    " Moving up/down moves visually.
+    " This makes files with very long lines much more manageable.
+    nnoremap j gj
+    nnoremap k gk
+    " Moving left/right will wrap around to the previous/next line.
+    set whichwrap=b,s,h,l,<,>,~,[,]
+    " Backspace will delete whatever is behind your cursor.
+    set backspace=indent,eol,start
+
+    "Bind the 'old' up and down. Use these to skip past a very long line.
+    noremap gj j
+    noremap gk k
+" }
+
+" general usability {
+    "turn off the annoying "ding!"
+    set visualbell
+
+    "allow setting extra option directly in files
+    "example: "vim: syntax=vim"
+    set modeline
+
+    "don't clobber the buffer when pasting in visual mode
+    vmap P p
+    vnoremap p pgvy
+" }
+
 if has("autocmd")
     " Load files for specific filetypes
     filetype on
