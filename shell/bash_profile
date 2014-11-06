@@ -24,9 +24,12 @@ load_dotfiles() {
         $HOME/.dotfiles/shell/functions/* # Functions
         $HOME/.dotfiles/shell/bash_prompt # Custom bash prompt
         $HOME/.dotfiles/shell/bash_paths # Path modifications
-        $(brew --prefix)/etc/bash_completion # Bash completion (installed via Homebrew)
         $HOME/.bash_profile.local # Local and private settings not under version control (e.g. git credentials)
     )
+
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        files+=$(brew --prefix)/etc/bash_completion # Bash completion (installed via Homebrew)
+    fi
 
     # if these files are readable, source them
     for index in ${!files[*]}

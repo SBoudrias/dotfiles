@@ -14,9 +14,12 @@ declare -a dirs_to_append=(
     "$HOME/.dotfiles/bin"
     "$HOME/.rvm/bin"
     "$HOME/.rvm/gem"
-    "$(brew --prefix coreutils)/libexec/gnubin" # Add brew-installed GNU core utilities bin
-    "$(brew --prefix)/share/npm/bin" # Add npm-installed package bin
 )
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    dirs_to_append+="$(brew --prefix coreutils)/libexec/gnubin" # Add brew-installed GNU core utilities bin
+    dirs_to_append+="$(brew --prefix)/share/npm/bin" # Add npm-installed package bin
+fi
 
 # Prepend directories to PATH
 for index in ${!dirs_to_prepend[*]}
