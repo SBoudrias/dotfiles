@@ -19,10 +19,13 @@ export HISTSIZE=10000
 # Don't clear the screen after quitting a manual page
 export MANPAGER="less -X"
 
-# Export PhantomJS bin location (be explicit in case Homebrew is not installed
-# in the default location)
 if [[ "$OSTYPE" == "darwin"* ]]; then
+  # Export some paths
+  export JAVA_HOME="/Library/Java/Home"
+
+  # (be explicit in case Homebrew is not installed in the default location)
   export PHANTOMJS_BIN="$(brew --prefix)/bin/phantomjs"
+  export ANDROID_HOME="$(brew --prefix)/Cellar/android-sdk/24.1.2"
 fi
 
 # Make new shells get the history lines from all previous

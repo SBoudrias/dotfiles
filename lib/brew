@@ -32,6 +32,8 @@ run_brew() {
             'phantomjs'
             'tree'
             'wget'
+            'maven'
+            'android-sdk'
         )
 
         for index in ${!desired_formulae[*]}
