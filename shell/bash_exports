@@ -21,7 +21,7 @@ export MANPAGER="less -X"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # Export some paths
-  export JAVA_HOME="/Library/Java/Home"
+  export JAVA_HOME="`/usr/libexec/java_home -v 1.8`"
 
   # (be explicit in case Homebrew is not installed in the default location)
   export PHANTOMJS_BIN="$(brew --prefix)/bin/phantomjs"
