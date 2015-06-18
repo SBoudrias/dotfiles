@@ -9,3 +9,6 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 # This loads NVM
 [[ -s /Users/sboudrias/.nvm/nvm.sh ]] && . /Users/sboudrias/.nvm/nvm.sh
+
+# added by travis gem
+[ -f /Users/sboudrias/.travis/travis.sh ] && source /Users/sboudrias/.travis/travis.sh
