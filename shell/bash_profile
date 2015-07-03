@@ -42,3 +42,8 @@ load_dotfiles() {
 
 load_dotfiles
 unset load_dotfiles
+
+# Git autocompletion
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
