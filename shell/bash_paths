@@ -12,6 +12,7 @@ declare -a dirs_to_append=(
     "/usr/bin"
     "$HOME/bin"
     "$HOME/.dotfiles/bin"
+    "$HOME/.gem/ruby/2.0.0/bin"
     "$HOME/.rvm/bin"
     "$HOME/.rvm/gem"
 )

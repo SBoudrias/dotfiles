@@ -128,6 +128,7 @@ mirrorfiles() {
     link "shell/curlrc"       ".curlrc"
     link "shell/npmrc"        ".npmrc"
     link "shell/inputrc"      ".inputrc"
+    link "shell/gemrc"        ".gemrc"
     link "git/gitattributes"  ".gitattributes"
     link "git/gitignore"      ".gitignore"
     link "vim"                ".vim"
