@@ -4,11 +4,11 @@
 
 [ -n "$PS1" ] && source ~/.bash_profile
 
-# Source virutalenv wrapper
-source /usr/local/bin/virtualenvwrapper.sh
-
 # This loads NVM
 [[ -s /Users/sboudrias/.nvm/nvm.sh ]] && . /Users/sboudrias/.nvm/nvm.sh
+
+# Load pyenv
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 # added by travis gem
 [ -f /Users/sboudrias/.travis/travis.sh ] && source /Users/sboudrias/.travis/travis.sh

@@ -34,6 +34,7 @@ run_brew() {
             'wget'
             'maven'
             'android-sdk'
+            'pyenv'
         )
 
         for index in ${!desired_formulae[*]}
