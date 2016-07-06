@@ -31,7 +31,8 @@ alias mvim="open -a MacVim"
 
 # Single letter git
 alias s="git status --short"
-alias c="git commit"
+alias c="git checkout"
+alias b="git branch"
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -57,6 +58,3 @@ alias hidedeskicons="defaults write com.apple.finder CreateDesktop -bool false &
 
 # SSH servers
 alias cdigitalocean="ssh root@192.241.186.73"
-
-# Node-webkit
-alias nw='/Applications/node-webkit.app/Contents/MacOS/node-webkit'
