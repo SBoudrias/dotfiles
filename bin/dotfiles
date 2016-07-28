@@ -23,7 +23,6 @@ source ./lib/list
 source ./lib/utils
 source ./lib/brew
 source ./lib/npm
-source ./lib/appium
 
 # Help text
 if [[ "$1" == "-h" || "$1" == "--help" ]]; then
