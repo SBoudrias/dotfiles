@@ -34,6 +34,7 @@ run_brew() {
             'maven'
             'android-sdk'
             'pyenv'
+            'yarn'
         )
 
         for index in ${!desired_formulae[*]}
