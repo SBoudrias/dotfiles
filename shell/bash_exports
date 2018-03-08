@@ -22,10 +22,6 @@ export MANPAGER="less -X"
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # Export some paths
   export JAVA_HOME="`/usr/libexec/java_home -v 1.8`"
-
-  # (be explicit in case Homebrew is not installed in the default location)
-  export PHANTOMJS_BIN="$(brew --prefix)/bin/phantomjs"
-  export ANDROID_HOME="$(brew --prefix)/Cellar/android-sdk/24.1.2"
 fi
 
 # Make new shells get the history lines from all previous
