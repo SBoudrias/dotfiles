@@ -19,11 +19,6 @@ export HISTSIZE=10000
 # Don't clear the screen after quitting a manual page
 export MANPAGER="less -X"
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  # Export some paths
-  export JAVA_HOME="`/usr/libexec/java_home -v 1.8`"
-fi
-
 # Make new shells get the history lines from all previous
 # shells instead of the default "last window closed" history
 export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
