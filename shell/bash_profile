@@ -27,10 +27,6 @@ load_dotfiles() {
         $HOME/.bash_profile.local # Local and private settings not under version control (e.g. git credentials)
     )
 
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-        files+=$(brew --prefix)/etc/bash_completion # Bash completion (installed via Homebrew)
-    fi
-
     # if these files are readable, source them
     for index in ${!files[*]}
     do
@@ -43,7 +39,6 @@ load_dotfiles() {
 load_dotfiles
 unset load_dotfiles
 
-# Git autocompletion
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
-fi
+# Load Autocompletion
+[ -f `brew --prefix`/etc/bash_completion ] && . `brew --prefix`/etc/bash_completion
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
