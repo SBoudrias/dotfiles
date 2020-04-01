@@ -27,11 +27,11 @@ run_brew() {
             'graphicsmagick'
             'jpeg'
             'macvim --override-system-vim'
-            'nvm'
             'optipng'
             'tree'
             'wget'
             'yarn'
+            'watchman'
         )
 
         for index in ${!desired_formulae[*]}
@@ -103,5 +103,4 @@ run_brew() {
         printf "Go to https://brew.sh/"
         exit
     fi
-
 }

@@ -30,7 +30,5 @@ export WORKON_HOME="~/.virtualenvs"
 GEM_HOME="${HOME}/.gems"
 
 # NPM packages
-export NVM_DIR="${HOME}/.nvm"
-source $(brew --prefix nvm)/nvm.sh
 NPM_PACKAGES="${HOME}/.npm-packages"
 NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
