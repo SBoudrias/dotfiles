@@ -90,14 +90,13 @@ run_brew() {
 
             e_header "Installing missing Homebrew cask..."
             # Install all missing cask
-            brew cask install $list_cask
+            brew install --cask $list_cask
 
             [[ $? ]] && e_success "Done"
         fi
 
         # Remove outdated versions from the Cellar
         brew cleanup
-        brew cask cleanup
     else
         printf "\n"
         e_error "Error: Homebrew not found."
