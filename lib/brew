@@ -15,8 +15,8 @@ run_brew() {
         [[ $? ]] && e_success "Done"
 
         e_header "Checking status of desired Homebrew formulae..."
-        local list_brew
-        local -a missing_brew
+        local list_formulae
+        local -a missing_formulae
         local -a desired_formulae=(
             'coreutils' # GNU core utilities (those that come with OS X are outdated)
             'git'
@@ -36,13 +36,27 @@ run_brew() {
 
         for index in ${!desired_formulae[*]}
         do
-            if ! formula_or_cask_exists ${desired_formulae[$index]}; then
+            if ! formula_exists ${desired_formulae[$index]}; then
                 # Store the name (and options) of every missing formula
-                missing_brew=("${missing_brew[@]}" "${desired_formulae[$index]}")
+                missing_formulae=("${missing_formulae[@]}" "${desired_formulae[$index]}")
             fi
         done
 
+        if [[ "$missing_formulae" ]]; then
+            # Convert the array of missing formula into a list of space-separate strings
+            list_formulae=$( printf "%s " "${missing_formulae[@]}" )
+
+            e_header "Installing missing Homebrew formulae..."
+            # Install all missing formulae
+            echo brew install --formulae $list_formulae
+            brew install --formulae $list_formulae
+
+            [[ $? ]] && e_success "Done"
+        fi
+
         e_header "Checking status of desired Homebrew cask..."
+        local list_cask
+        local -a missing_cask
         local -a desired_cask=(
             'docker' # docker for mac
             'alfred'
@@ -61,29 +75,23 @@ run_brew() {
 
         for index in ${!desired_cask[*]}
         do
-            if ! formula_or_cask_exists ${desired_cask[$index]}; then
+            if ! cask_exists ${desired_cask[$index]}; then
                 # Store the name (and options) of every missing formula
-                missing_brew=("${missing_brew[@]}" "${desired_cask[$index]}")
+                missing_cask=("${missing_cask[@]}" "${desired_cask[$index]}")
             fi
         done
 
-        if [[ "$missing_brew" ]]; then
-            # Convert the array of missing brews into a list of space-separate strings
-            list_brew=$( printf "%s " "${missing_brew[@]}" )
+        if [[ "$missing_cask" ]]; then
+            # Convert the array of missing casks into a list of space-separate strings
+            list_cask=$( printf "%s " "${missing_cask[@]}" )
 
-            e_header "Installing missing Homebrew formulae..."
-            # Install all missing formulae
-            brew install $list_brew
+            e_header "Installing missing Homebrew cask..."
+            # Install all missing cask
+            echo brew install --cask $list_cask
+            brew install --cask $list_cask
 
             [[ $? ]] && e_success "Done"
         fi
-
-        # use latest rsync rather than out-dated OS X rsync
-        # install separately from the main formulae list to fix gh-19
-        brew install https://raw.github.com/Homebrew/homebrew-dupes/master/rsync.rb
-
-        # Remove outdated versions from the Cellar
-        brew cleanup
     else
         printf "\n"
         e_error "Error: Homebrew not found."
