@@ -61,17 +61,19 @@ run_brew() {
         local list_cask
         local -a missing_cask
         local -a desired_cask=(
-            'atom'
-            'iterm2'
             'docker' # docker for mac
             'alfred'
             'spectacle'
             '1password'
-            'google-backup-and-sync'
+            'google-drive'
             'evernote'
             'spotify'
             'google-chrome'
             'electronic-wechat'
+            'whatsapp'
+            'messenger'
+            'warp'
+            'visual-studio-code'
         )
 
         for index in ${!desired_cask[*]}
