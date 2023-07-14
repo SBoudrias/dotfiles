@@ -59,7 +59,7 @@ run_brew() {
         local -a missing_cask
         local -a desired_cask=(
             'docker' # docker for mac
-            'alfred'
+            'raycast'
             'spectacle'
             '1password'
             'google-drive'
