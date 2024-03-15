@@ -8,7 +8,6 @@ eval "$(github-copilot-cli alias -- "$0")"
 # Load Autocompletion
 [ -f `brew --prefix`/etc/bash_completion ] && . `brew --prefix`/etc/bash_completion
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
-export PATH="/usr/local/sbin:$PATH"
 
 # Setup Volta
 export VOLTA_HOME="$HOME/.volta"
@@ -16,5 +15,5 @@ grep --silent "$VOLTA_HOME/bin" <<< $PATH || export PATH="$VOLTA_HOME/bin:$PATH"
 
 [ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="/usr/local/sbin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export GPG_TTY=$(tty)

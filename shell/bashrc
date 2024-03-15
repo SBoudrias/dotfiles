@@ -7,9 +7,6 @@
 # Load pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
-# added by travis gem
-[ -f /Users/SBoudrias/.travis/travis.sh ] && source /Users/SBoudrias/.travis/travis.sh
-
 # Setup Volta
 export VOLTA_HOME="$HOME/.volta"
 grep --silent "$VOLTA_HOME/bin" <<< $PATH || export PATH="$VOLTA_HOME/bin:$PATH"

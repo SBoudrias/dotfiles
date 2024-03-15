@@ -99,7 +99,10 @@ else
     printf "Updating packages...\n"
     # Install Homebrew formulae
     run_brew
+
     # Install Node packages
+    volta install node
+    corepack enable
     run_npm
 fi
 

@@ -20,6 +20,7 @@ run_brew() {
         local -a desired_formulae=(
             'coreutils' # GNU core utilities (those that come with OS X are outdated)
             'git'
+            'gh'
             'ack'
             'bash'
             'bash-completion'
@@ -29,8 +30,8 @@ run_brew() {
             'vim'
             'optipng'
             'tree'
+            'volta'
             'wget'
-            'yarn'
             'watchman'
         )
 
@@ -60,13 +61,12 @@ run_brew() {
         local -a desired_cask=(
             'docker' # docker for mac
             'raycast'
-            'spectacle'
+            'rectangle'
             '1password'
             'google-drive'
-            'evernote'
             'spotify'
             'google-chrome'
-            'electronic-wechat'
+            'wechat'
             'whatsapp'
             'messenger'
             'warp'
