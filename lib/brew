@@ -24,6 +24,7 @@ run_brew() {
             'ack'
             'bash'
             'bash-completion'
+            'zsh-completions'
             'ffmpeg'
             'graphicsmagick'
             'jpeg'
@@ -92,6 +93,9 @@ run_brew() {
 
             [[ $? ]] && e_success "Done"
         fi
+
+        chmod go-w "$(brew --prefix)/share"
+        chmod -R go-w "$(brew --prefix)/share/zsh"
     else
         printf "\n"
         e_error "Error: Homebrew not found."

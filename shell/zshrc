@@ -6,8 +6,12 @@ eval "$(pyenv init -)"
 eval "$(github-copilot-cli alias -- "$0")"
 
 # Load Autocompletion
-[ -f `brew --prefix`/etc/bash_completion ] && . `brew --prefix`/etc/bash_completion
-[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+    autoload -Uz compinit
+    compinit
+fi
 
 # Setup Volta
 export VOLTA_HOME="$HOME/.volta"
