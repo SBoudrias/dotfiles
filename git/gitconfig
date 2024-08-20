@@ -74,6 +74,7 @@
 
 [push]
     default = simple
+    autoSetupRemote = true
 
 [user]
     email = admin@simonboudrias.com
