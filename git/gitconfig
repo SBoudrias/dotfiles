@@ -57,11 +57,19 @@
     excludesfile = ~/.gitignore
     attributesfile = ~/.gitattributes
 
+    pager = delta
+
 [credential]
     helper = osxkeychain
 
+[merge]
+    conflictstyle = diff3
+
 [diff]
-    tool = mvimdiff
+    colorMoved = default
+
+[interactive]
+    diffFilter = delta --color-only
 
 [difftool]
     prompt = false
@@ -81,4 +89,7 @@
     name = Simon Boudrias
 
 [help]
-  autocorrect = 5
+    autocorrect = 5
+
+[delta]
+    navigate = true    # use n and N to move between diff sections

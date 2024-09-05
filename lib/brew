@@ -24,6 +24,7 @@ run_brew() {
             'ack'
             'bash'
             'bash-completion'
+            'delta'
             'zsh-completions'
             'ffmpeg'
             'graphicsmagick'
