@@ -3,7 +3,6 @@ source $HOME/.dotfiles/shell/bash_exports
 source $HOME/.dotfiles/shell/zsh_paths
 
 eval "$(pyenv init -)"
-eval "$(github-copilot-cli alias -- "$0")"
 
 # Load Autocompletion
 if type brew &>/dev/null; then
