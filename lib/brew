@@ -20,6 +20,7 @@ run_brew() {
         local -a desired_formulae=(
             'coreutils' # GNU core utilities (those that come with OS X are outdated)
             'git'
+            'git-delta'
             'gh'
             'ack'
             'bash'
