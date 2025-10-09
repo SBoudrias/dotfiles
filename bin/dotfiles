@@ -137,6 +137,15 @@ mirrorfiles() {
     link "vim/gvimrc"         ".gvimrc"
     link "vim/vimrc"          ".vimrc"
 
+    # Link AI tool settings
+    mkdir ${HOME}/.codex
+    mkdir ${HOME}/.claude
+    link "codex/AGENTS.md"    ".codex/AGENTS.md"
+    link "claude/CLAUDE.md"    ".claude/CLAUDE.md"
+    link "claude/settings.json"    ".claude/settings.json"
+    link "claude/agents"    ".claude/agents"
+    link "claude/commands"    ".claude/commands"
+
     e_success "Dotfiles update complete!"
 }
 
