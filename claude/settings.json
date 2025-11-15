@@ -43,9 +43,9 @@
       "Bash(make:*)",
       "Bash(docker:*)",
       "Bash(docker-compose:*)",
-      "Bash(pkill:*)"
+      "Bash(pkill:*)",
+      "Bash(uuidgen)"
     ],
-    "ask": ["Bash(rm -rf:*)"],
     "deny": [
       "Bash(sudo:*)",
       "Bash(chmod:*)",
@@ -53,6 +53,8 @@
       "Read(./.env)",
       "Read(./.env.*)",
       "Read(./secrets/**)"
-    ]
-  }
+    ],
+    "ask": ["Bash(rm -rf:*)"]
+  },
+  "alwaysThinkingEnabled": false
 }
