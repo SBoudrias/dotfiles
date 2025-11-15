@@ -1,6 +1,23 @@
-source $HOME/.dotfiles/shell/bash_aliases
-source $HOME/.dotfiles/shell/bash_exports
-source $HOME/.dotfiles/shell/zsh_paths
+#!/bin/zsh
+
+load_dotfiles() {
+    declare -a files=(
+        "$HOME/.dotfiles/shell/bash_aliases"
+        "$HOME/.dotfiles/shell/bash_exports"
+        "$HOME/.zshrc.local"
+    )
+
+    # if these files are readable, source them
+    for file in ${files[@]}
+    do
+        if [ -r $file ]; then
+            source $file
+        fi
+    done
+}
+
+load_dotfiles
+unset load_dotfiles
 
 eval "$(pyenv init -)"
 
@@ -14,9 +31,8 @@ fi
 
 # Setup Volta
 export VOLTA_HOME="$HOME/.volta"
-grep --silent "$VOLTA_HOME/bin" <<< $PATH || export PATH="$VOLTA_HOME/bin:$PATH"
 
-[ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
-
-export PATH="/usr/local/sbin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export GPG_TTY=$(tty)
+
+# 1password terminal plugins
+source /Users/simon.boudrias/.config/op/plugins.sh

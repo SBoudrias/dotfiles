@@ -131,6 +131,7 @@ mirrorfiles() {
     link "shell/inputrc"      ".inputrc"
     link "shell/gemrc"        ".gemrc"
     link "shell/zshrc"        ".zshrc"
+    link "shell/zprofile"     ".zprofile"
     link "git/gitattributes"  ".gitattributes"
     link "git/gitignore"      ".gitignore"
     link "vim"                ".vim"

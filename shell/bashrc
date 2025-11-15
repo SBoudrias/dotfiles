@@ -10,3 +10,6 @@ if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 # Setup Volta
 export VOLTA_HOME="$HOME/.volta"
 grep --silent "$VOLTA_HOME/bin" <<< $PATH || export PATH="$VOLTA_HOME/bin:$PATH"
+
+# 1password terminal plugins
+source /Users/simon.boudrias/.config/op/plugins.sh

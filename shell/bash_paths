@@ -13,6 +13,8 @@ declare -a dirs_to_append=(
     "/usr/bin"
     "/usr/local/bin"
     "$HOME/bin"
+    "$(brew --prefix)/share/npm/bin"
+    "$NPM_PACKAGES/bin"
     "$HOME/.dotfiles/bin"
     "$HOME/.gem/ruby/2.4.0/bin"
     "$HOME/.rvm/bin"
@@ -21,7 +23,6 @@ declare -a dirs_to_append=(
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     dirs_to_append+="$(brew --prefix coreutils)/libexec/gnubin" # Add brew-installed GNU core utilities bin
-    dirs_to_append+="$(brew --prefix)/share/npm/bin" # Add npm-installed package bin
 fi
 
 # Prepend directories to PATH
@@ -42,7 +43,6 @@ do
     fi
 done
 
-PATH="$NPM_PACKAGES/bin:$PATH"
 # Unset manpath so we can inherit from /etc/manpath via the `manpath`
 # command
 unset MANPATH # delete if you already modified MANPATH elsewhere in your config

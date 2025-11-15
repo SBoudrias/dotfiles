@@ -1,5 +1,12 @@
 #!/bin/zsh
 
+# Load Homebrew shell environment
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# NPM packages & Node
+NPM_PACKAGES="$HOME/.npm-packages"
+NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+
 # Directories to be prepended to PATH
 declare -a dirs_to_prepend=(
     "/usr/local/bin" # Ensure that this bin always takes precedence over `/usr/bin`
@@ -11,16 +18,20 @@ declare -a dirs_to_append=(
     "/usr/bin"
     "/usr/local/bin"
     "$HOME/bin"
+    "$(brew --prefix)/share/npm/bin"
+    "$NPM_PACKAGES/bin"
+    "$HOME/.yarn/bin"
+    "$HOME/.config/yarn/global/node_modules/.bin"
     "$HOME/.dotfiles/bin"
     "$HOME/.gem/ruby/2.4.0/bin"
     "$HOME/.rvm/bin"
     "$HOME/.rvm/gem"
     "$HOME/.volta/bin"
+    "$HOME/.local/bin" # pipx
 )
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     dirs_to_append+="$(brew --prefix coreutils)/libexec/gnubin" # Add brew-installed GNU core utilities bin
-    dirs_to_append+="$(brew --prefix)/share/npm/bin" # Add npm-installed package bin
 fi
 
 # Prepend directories to PATH
@@ -41,12 +52,10 @@ do
     fi
 done
 
-PATH="$NPM_PACKAGES/bin:$PATH"
+unset dirs_to_prepend dirs_to_append
+export PATH
+
 # Unset manpath so we can inherit from /etc/manpath via the `manpath`
 # command
 unset MANPATH # delete if you already modified MANPATH elsewhere in your config
 MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
-
-unset dirs_to_prepend dirs_to_append
-
-export PATH
