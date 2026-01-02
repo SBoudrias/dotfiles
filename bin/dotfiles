@@ -152,18 +152,15 @@ mirrorfiles() {
 
 # Ask before potentially overwriting files
 seek_confirmation "Warning: This step may overwrite your existing dotfiles."
-
 if is_confirmed; then
     mirrorfiles
     source ${HOME}/.bash_profile
 else
-    printf "Aborting...\n"
-    exit 1
+    printf "Skipped overwriting dotfiles.\n"
 fi
 
 # Ask before potentially overwriting OS X defaults
 seek_confirmation "Warning: This step may modify your OS X system defaults."
-
 if is_confirmed; then
     bash ./bin/osxdefaults
     e_success "OS X settings updated! You may need to restart."

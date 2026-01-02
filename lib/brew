@@ -18,7 +18,6 @@ run_brew() {
         local list_formulae
         local -a missing_formulae
         local -a desired_formulae=(
-            'codex'
             'coreutils' # GNU core utilities (those that come with OS X are outdated)
             'git'
             'git-delta'
@@ -32,12 +31,14 @@ run_brew() {
             'ffmpeg'
             'graphicsmagick'
             'jpeg'
+            'pyenv'
             'vim'
             'optipng'
             'tree'
             'volta'
             'wget'
             'watchman'
+            'rust'
         )
 
         for index in ${!desired_formulae[*]}
@@ -64,18 +65,17 @@ run_brew() {
         local list_cask
         local -a missing_cask
         local -a desired_cask=(
+            'claude-code'
+            'codex'
             'docker' # docker for mac
             'raycast'
             'rectangle'
             '1password'
+            '1password-cli'
             'google-drive'
-            'spotify'
             'google-chrome'
-            'wechat'
-            'whatsapp'
-            'messenger'
             'warp'
-            'visual-studio-code'
+            'zed'
         )
 
         for index in ${!desired_cask[*]}

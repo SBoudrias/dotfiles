@@ -3,19 +3,19 @@
 run_npm() {
 
     # Check for npm
-    if type_exists 'npm'; then
+    if type_exists 'volta'; then
         e_header "Installing Node.js packages..."
 
         # List of npm packages
-        local packages="yo ipt @anthropic-ai/claude-code"
+        local packages="yo ipt"
 
         # Install packages globally and quietly
-        npm install $packages --global --quiet
+        volta install $packages
 
         [[ $? ]] && e_success "Done"
     else
         printf "\n"
-        e_error "Error: npm not found."
+        e_error "Error: volta not found."
         printf "Aborting...\n"
         exit
     fi
