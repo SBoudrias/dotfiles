@@ -5,8 +5,10 @@
       "Read",
       "Edit",
       "Edit(/tmp/**)",
+      "Edit(~/github/.worktrees/**)",
       "Write",
       "Write(/tmp/**)",
+      "Write(~/github/.worktrees/**)",
       "MultiEdit",
       "Glob",
       "Grep",
@@ -49,8 +51,10 @@
       "Bash(uuidgen)",
       "Bash(rm:./**)",
       "Bash(rm:/tmp/**)",
+      "Bash(rm:~/github/.worktrees/**)",
       "Bash(rm -rf:./**)",
-      "Bash(rm -rf:/tmp/**)"
+      "Bash(rm -rf:/tmp/**)",
+      "Bash(rm -rf:~/github/.worktrees/**)"
     ],
     "deny": [
       "Bash(sudo:*)",
