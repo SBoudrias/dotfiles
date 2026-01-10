@@ -4,7 +4,9 @@
     "allow": [
       "Read",
       "Edit",
+      "Edit(/tmp/**)",
       "Write",
+      "Write(/tmp/**)",
       "MultiEdit",
       "Glob",
       "Grep",
@@ -44,7 +46,11 @@
       "Bash(docker:*)",
       "Bash(docker-compose:*)",
       "Bash(pkill:*)",
-      "Bash(uuidgen)"
+      "Bash(uuidgen)",
+      "Bash(rm:./**)",
+      "Bash(rm:/tmp/**)",
+      "Bash(rm -rf:./**)",
+      "Bash(rm -rf:/tmp/**)"
     ],
     "deny": [
       "Bash(sudo:*)",
@@ -54,7 +60,7 @@
       "Read(./.env.*)",
       "Read(./secrets/**)"
     ],
-    "ask": ["Bash(rm -rf:*)"]
+    "ask": []
   },
   "alwaysThinkingEnabled": false
 }
