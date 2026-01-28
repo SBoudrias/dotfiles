@@ -3,6 +3,8 @@
   "permissions": {
     "allow": [
       "Read",
+      "Read(/tmp/**)",
+      "Read(~/github/.worktrees/**)",
       "Edit",
       "Edit(/tmp/**)",
       "Edit(~/github/.worktrees/**)",
@@ -54,7 +56,13 @@
       "Bash(rm:~/github/.worktrees/**)",
       "Bash(rm -rf:./**)",
       "Bash(rm -rf:/tmp/**)",
-      "Bash(rm -rf:~/github/.worktrees/**)"
+      "Bash(rm -rf:~/github/.worktrees/**)",
+      "Bash(yt-dlp)",
+      "Bash(echo:*)",
+      "Bash(tar:*)",
+      "Bash(ddtool:*)",
+      "Skill(atlassian-remote-mcp:*)",
+      "mcp__plugin_atlassian-remote-mcp_atlassian-remote__*"
     ],
     "deny": [
       "Bash(sudo:*)",
