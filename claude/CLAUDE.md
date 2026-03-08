@@ -3,8 +3,8 @@
 ## Github
 
 When interacting with Github (github.com), ALWAYS use `gh` on the command line, do not use an MCP server.
-
 ALWAYS open new PRs in draft mode.
+Before updating/modifying a PR, ALWAYS rebase on the latest base branch before pushing.
 
 ## Worktrees
 
@@ -12,3 +12,7 @@ ALWAYS open new PRs in draft mode.
 2. Use short but descriptive names for the branch and the worktree folder name. Do NOT only use a ticket number.
 3. Create worktrees inside `~/github/.worktrees/`
 4. Always run install inside the new worktree after creation. Use the proper package management tool, look at the lock file to know which one a project use.
+
+## Browser
+
+To interact with a web browser, rely on `agent-browser` as documented here https://agent-browser.dev/
