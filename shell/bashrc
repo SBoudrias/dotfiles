@@ -12,4 +12,7 @@ export VOLTA_HOME="$HOME/.volta"
 grep --silent "$VOLTA_HOME/bin" <<< $PATH || export PATH="$VOLTA_HOME/bin:$PATH"
 
 # 1password terminal plugins
-source /Users/simon.boudrias/.config/op/plugins.sh
+source ~/.config/op/plugins.sh
+
+# Added by Yarn Switch
+source "~/.yarn/switch/env"

@@ -75,6 +75,7 @@
       "Skill(atlassian-remote-mcp:*)",
       "Skill(claude-developer-platform)",
       "Skill(commit-commands:*)",
+      "Skill(dd:*)",
       "TodoRead",
       "TodoWrite",
       "WebFetch",
@@ -96,10 +97,68 @@
     "ask": []
   },
   "model": "sonnet",
-  "effortLevel": "medium",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/claudeception-activator.sh"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/session-start-install.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "atlassian-remote-mcp@datadog-claude-plugins": true,
+    "startup-subagents@sboudrias-claude-plugins": true,
+    "redblue@datadog-claude-plugins": true,
+    "marketplace-auto-update@datadog-claude-plugins": true,
+    "dd@datadog-claude-plugins": true,
+    "osx-notifications@datadog-claude-plugins": true,
+    "commit-commands@claude-code-plugins": true,
+    "ralph-wiggum@claude-code-plugins": true,
+    "user-context@datadog-claude-plugins": true,
+    "common-mistakes@mat-brown-contrib": true,
+    "go-code-reviewer@datadog-claude-plugins": true,
+    "trajectory@mrlee-plugins": true,
+    "appgate@datadog-claude-plugins": true,
+    "slack@claude-plugins-official": true
+  },
   "sandbox": {
     "enabled": true,
     "autoAllowBashIfSandboxed": true,
+    "network": {
+      "allowedDomains": [
+        "github.com",
+        "*.github.com",
+        "*.npmjs.org",
+        "*.yarnpkg.com",
+        "*.vercel.com",
+        "*.unpkg.com",
+        "*.jsdelivr.com",
+        "*.ddbuild.io",
+        "*.datad0g.com",
+        "*.datadoghq.com",
+        "*.youtube.com"
+      ],
+      "allowUnixSockets": [
+        "//var/run/docker.sock",
+        "~/.ssh/agent-socket"
+      ],
+      "allowLocalBinding": true
+    },
     "filesystem": {
       "allowWrite": [
         "/plugins/cache",
@@ -109,21 +168,11 @@
         "~/.cache"
       ]
     },
-    "network": {
-      "allowedDomains": [
-        "github.com",
-        "*.github.com",
-        "*.npmjs.org",
-        "*.yarnpkg.com",
-        "*.vercel.com",
-        "*.ddbuild.io",
-        "*.datad0g.com",
-        "*.datadoghq.com",
-        "*.youtube.com"
-      ],
-      "allowUnixSockets": ["//var/run/docker.sock", "~/.ssh/agent-socket"],
-      "allowLocalBinding": true
-    },
-    "excludedCommands": ["docker", "git", "gh"]
-  }
+    "excludedCommands": [
+      "docker",
+      "git",
+      "gh"
+    ]
+  },
+  "effortLevel": "medium"
 }

@@ -57,7 +57,13 @@ fi
 # Check for Homebrew
 if ! type_exists 'brew'; then
     e_header "Installing Homebrew..."
-    ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+# Check for oh-my-zsh
+if ! type_exists 'omz'; then
+    e_header "Installing Oh My ZSH..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
 # Check for git
@@ -146,6 +152,11 @@ mirrorfiles() {
     link "claude/settings.json"    ".claude/settings.json"
     link "claude/agents"    ".claude/agents"
     link "claude/commands"    ".claude/commands"
+    # Replace hooks dir with symlink (rm -rf only if it's a real directory, not already a symlink)
+    if [ -d "${HOME}/.claude/hooks" ] && [ ! -L "${HOME}/.claude/hooks" ]; then
+        rm -rf "${HOME}/.claude/hooks"
+    fi
+    link "claude/hooks"    ".claude/hooks"
 
     e_success "Dotfiles update complete!"
 }
