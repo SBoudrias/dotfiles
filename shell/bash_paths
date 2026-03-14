@@ -11,8 +11,8 @@ declare -a dirs_to_prepend=(
 # Directories to be appended to PATH
 declare -a dirs_to_append=(
     "/usr/bin"
-    "/usr/local/bin"
     "$HOME/bin"
+    "$HOME/.volta/bin"
     "$(brew --prefix)/share/npm/bin"
     "$NPM_PACKAGES/bin"
     "$HOME/.dotfiles/bin"
