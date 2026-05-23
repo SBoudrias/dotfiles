@@ -30,16 +30,16 @@ Make each assertion answer a question a maintainer would care about if it broke.
 Use the output's natural shape:
 
 - For structured output, parse it and assert the relevant fields.
-- For canonicalized output, assert it is stable under the canonicalizer instead of hard-coding the whole transformed artifact.
+- For canonicalized output, assert it is stable under the canonicalizer instead of hard-coding the whole transformed artifact. Normalize incidental whitespace before snapshotting.
 - For ordered collections, assert entries in order in one place rather than splitting value and order assertions.
 - For "no change" behavior, assert the relevant persisted or returned data still equals the original fixture.
 - For side effects, assert the final side effect rather than every internal call that led to it.
 
-Keep important expectations inline unless a helper removes substantial repetitive setup. Assertion helpers can hide what the test really proves and make review harder.
+Keep important expectations inline unless a helper removes substantial repetitive setup. Assertion helpers can hide what the test really proves and make review harder. Keep test names aligned with the actual contract; misleading names are test quality issues.
 
 ## Fixture Discipline
 
-Keep fixtures realistic, minimal, and shaped like production data. Include enough detail to exercise the behavior, but avoid unrelated fields that make failures noisy.
+Keep fixtures realistic, minimal, and shaped like production data. Local production data, such as JSON files read from disk, can be the best fixture when stable and cheap to load; do not replace it with fake inline data by default. Live APIs, networks, and other unstable or slow boundaries should still be mocked.
 
 Keep fixture ordering and formatting consistent with production output when the test rewrites or compares whole artifacts. Arbitrary fixture differences create review churn and can obscure the behavior under test.
 
@@ -47,11 +47,21 @@ Name reusable values once and reuse them. If the test creates a path, ID, reques
 
 ## Mock Discipline
 
-Use fewer, coarser mocks. Mock at the boundary that lets the unit run deterministically, not every helper the implementation currently calls.
+Use fewer, coarser mocks. Mock at the boundary that lets the unit run deterministically or faster, not every helper the implementation currently calls. Returning curated real records from a mocked disk-loading boundary is valid when the assertions still cover observable behavior.
 
 Avoid tests that only prove "helper X was called with Y" unless that call is the public contract. Prefer verifying the resulting return value, stored data, emitted event, request, file content, or UI state.
 
 Do not mock the code path you are trying to validate. If a test replaces the important behavior with a mock, it is usually testing wiring rather than behavior.
+
+## Frontend and Testing Library
+
+- Prefer page or public component tests over internal child components when the boundary is cheap enough.
+- Use semantic queries with accessible names. Avoid `data-testid`, broad text queries, and DOM traversal unless there is a measured reason.
+- For controlled inputs, use a small stateful harness and assert visible value or state, not callback churn from an un-rerendered prop.
+- Prefer `userEvent` for workflows. Use low-level events only when the event itself is the boundary.
+- For URL state, assert the router or query adapter result, not internal setter calls.
+- For search and filters, assert both inclusion and exclusion inside the relevant list or group.
+- For links, query user-visible anchors and use shared URL factories when available.
 
 ## Useful Patterns
 
