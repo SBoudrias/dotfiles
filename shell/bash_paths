@@ -2,6 +2,8 @@
 
 # bash_paths
 
+BREW_HOME="$(brew --prefix)"
+
 # Directories to be prepended to PATH
 declare -a dirs_to_prepend=(
     "/usr/local/bin" # Ensure that this bin always takes precedence over `/usr/bin`
@@ -13,7 +15,8 @@ declare -a dirs_to_append=(
     "/usr/bin"
     "$HOME/bin"
     "$HOME/.volta/bin"
-    "$(brew --prefix)/share/npm/bin"
+    "$HOME/.local/bin"
+    "$BREW_HOME/share/npm/bin"
     "$NPM_PACKAGES/bin"
     "$HOME/.dotfiles/bin"
     "$HOME/.gem/ruby/2.4.0/bin"
@@ -22,7 +25,7 @@ declare -a dirs_to_append=(
 )
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    dirs_to_append+="$(brew --prefix coreutils)/libexec/gnubin" # Add brew-installed GNU core utilities bin
+    dirs_to_append+="$BREW_HOME/opt/coreutils/libexec/gnubin" # Add brew-installed GNU core utilities bin
 fi
 
 # Prepend directories to PATH

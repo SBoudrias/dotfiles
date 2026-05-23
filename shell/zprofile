@@ -2,6 +2,7 @@
 
 # Load Homebrew shell environment
 eval "$(/opt/homebrew/bin/brew shellenv)"
+export BREW_HOME="$(brew --prefix)"
 
 # NPM packages & Node
 export NPM_PACKAGES="$HOME/.npm-packages"
@@ -21,7 +22,8 @@ declare -a dirs_to_append=(
     "/usr/bin"
     "$HOME/bin"
     "$HOME/.volta/bin"
-    "$(brew --prefix)/share/npm/bin"
+    "$HOME/.local/bin"
+    "$BREW_HOME/share/npm/bin"
     "$NPM_PACKAGES/bin"
     "$HOME/.yarn/bin"
     "$HOME/.config/yarn/global/node_modules/.bin"
@@ -32,8 +34,8 @@ declare -a dirs_to_append=(
     "$HOME/.local/bin" # pipx
 )
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    dirs_to_append+="$(brew --prefix coreutils)/libexec/gnubin" # Add brew-installed GNU core utilities bin
+if [[ -d "$BREW_HOME/opt/coreutils/libexec/gnubin" ]]; then
+    dirs_to_append+=("$BREW_HOME/opt/coreutils/libexec/gnubin")
 fi
 
 # Prepend directories to PATH
