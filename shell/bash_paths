@@ -14,7 +14,7 @@ declare -a dirs_to_prepend=(
 declare -a dirs_to_append=(
     "/usr/bin"
     "$HOME/bin"
-    "$HOME/.volta/bin"
+    "$HOME/.local/share/mise/shims"
     "$HOME/.local/bin"
     "$BREW_HOME/share/npm/bin"
     "$NPM_PACKAGES/bin"

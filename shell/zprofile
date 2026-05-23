@@ -1,15 +1,12 @@
 #!/bin/zsh
 
 # Load Homebrew shell environment
-eval "$(/opt/homebrew/bin/brew shellenv)"
-export BREW_HOME="$(brew --prefix)"
+export BREW_HOME="${BREW_HOME:-/opt/homebrew}"
+eval "$("$BREW_HOME/bin/brew" shellenv)"
 
 # NPM packages & Node
 export NPM_PACKAGES="$HOME/.npm-packages"
 export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
-
-# Setup Volta
-export VOLTA_HOME="$HOME/.volta"
 
 # Directories to be prepended to PATH
 declare -a dirs_to_prepend=(
@@ -21,7 +18,7 @@ declare -a dirs_to_prepend=(
 declare -a dirs_to_append=(
     "/usr/bin"
     "$HOME/bin"
-    "$HOME/.volta/bin"
+    "$HOME/.local/share/mise/shims"
     "$HOME/.local/bin"
     "$BREW_HOME/share/npm/bin"
     "$NPM_PACKAGES/bin"
