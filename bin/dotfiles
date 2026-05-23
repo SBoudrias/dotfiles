@@ -106,11 +106,8 @@ else
     # Install Homebrew formulae
     run_brew
 
-    # Install Node packages
-    mise use -g -y node@latest
-    if mise exec node@latest -- command -v corepack >/dev/null 2>&1; then
-        mise exec node@latest -- corepack enable
-    fi
+    # Install mise-managed runtimes
+    mise install -y node@latest
     run_npm
 fi
 
@@ -154,6 +151,13 @@ mirrorfiles() {
     link "claude/settings.json"    ".claude/settings.json"
     link "claude/agents"    ".claude/agents"
     link "claude/commands"    ".claude/commands"
+
+    # Link developer tool settings
+    mkdir -p "${HOME}/.config/mise"
+    link "mise/config.toml"    ".config/mise/config.toml"
+    if type_exists 'mise'; then
+        mise trust "${DOTFILES_DIRECTORY}/mise/config.toml" >/dev/null
+    fi
 
     # Replace hooks dir with symlink (rm -rf only if it's a real directory, not already a symlink)
     if [ -d "${HOME}/.claude/hooks" ] && [ ! -L "${HOME}/.claude/hooks" ]; then

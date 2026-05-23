@@ -1,0 +1,8 @@
+[settings]
+idiomatic_version_file_enable_tools = ["node"]
+node.corepack = true
+
+[tools]
+node = "latest"
+"npm:ipt" = "latest"
+"npm:yo" = "latest"

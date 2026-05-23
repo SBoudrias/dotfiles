@@ -69,7 +69,7 @@ Homebrew formulae:
 * [graphicsmagick](http://www.graphicsmagick.org/)
 * [jpeg](https://en.wikipedia.org/wiki/Libjpeg)
 * [macvim](http://code.google.com/p/macvim/)
-* [mise](https://mise.jdx.dev/) (manages Node.js)
+* [mise](https://mise.jdx.dev/) (manages language runtimes and developer tools)
 * [optipng](http://optipng.sourceforge.net/)
 * [phantomjs](http://phantomjs.org/)
 * [rsync](https://rsync.samba.org/) (latest version, rather than the out-dated OS X installation)
