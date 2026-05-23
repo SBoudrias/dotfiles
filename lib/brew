@@ -31,7 +31,6 @@ run_brew() {
             'ffmpeg'
             'graphicsmagick'
             'jpeg'
-            'pyenv'
             'vim'
             'optipng'
             'tree'
@@ -64,8 +63,10 @@ run_brew() {
         local list_cask
         local -a missing_cask
         local -a desired_cask=(
+            'claude'
             'claude-code'
             'codex'
+            'codex-app'
             'docker' # docker for mac
             'raycast'
             'rectangle'
