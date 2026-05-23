@@ -1,0 +1,4 @@
+interface:
+  display_name: "Unit Test Quality"
+  short_description: "Unit test guidance."
+  default_prompt: "Use $unit-tests to write or improve these unit tests."

@@ -148,10 +148,12 @@ mirrorfiles() {
     mkdir ${HOME}/.codex
     mkdir ${HOME}/.claude
     link "codex/AGENTS.md"    ".codex/AGENTS.md"
+    link "codex/skills"    ".codex/skills"
     link "claude/CLAUDE.md"    ".claude/CLAUDE.md"
     link "claude/settings.json"    ".claude/settings.json"
     link "claude/agents"    ".claude/agents"
     link "claude/commands"    ".claude/commands"
+
     # Replace hooks dir with symlink (rm -rf only if it's a real directory, not already a symlink)
     if [ -d "${HOME}/.claude/hooks" ] && [ ! -L "${HOME}/.claude/hooks" ]; then
         rm -rf "${HOME}/.claude/hooks"
