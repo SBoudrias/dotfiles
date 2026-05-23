@@ -4,5 +4,6 @@ node.corepack = true
 
 [tools]
 node = "latest"
+rust = "latest"
 "npm:ipt" = "latest"
 "npm:yo" = "latest"

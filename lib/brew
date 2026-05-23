@@ -38,7 +38,6 @@ run_brew() {
             'mise'
             'wget'
             'watchman'
-            'rust'
         )
 
         for index in ${!desired_formulae[*]}

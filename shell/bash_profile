@@ -44,5 +44,3 @@ unset load_dotfiles
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 export GPG_TTY=$(tty)
-
-[ -r "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"

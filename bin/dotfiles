@@ -107,7 +107,7 @@ else
     run_brew
 
     # Install mise-managed runtimes
-    mise install -y node@latest
+    mise install -y node@latest rust@latest
     run_npm
 fi
 
