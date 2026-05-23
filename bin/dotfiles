@@ -60,10 +60,16 @@ if ! type_exists 'brew'; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-# Check for oh-my-zsh
-if ! type_exists 'omz'; then
+# Install or update oh-my-zsh
+OMZ_DIRECTORY="${ZSH:-${HOME}/.oh-my-zsh}"
+if [[ -f "${OMZ_DIRECTORY}/tools/upgrade.sh" ]]; then
+    e_header "Updating Oh My ZSH..."
+    ZSH="${OMZ_DIRECTORY}" zsh "${OMZ_DIRECTORY}/tools/upgrade.sh"
+elif [[ -d "${OMZ_DIRECTORY}" ]]; then
+    e_warning "Oh My ZSH directory already exists at ${OMZ_DIRECTORY}, but it does not look like a complete installation."
+else
     e_header "Installing Oh My ZSH..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    ZSH="${OMZ_DIRECTORY}" /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
 # Check for git
