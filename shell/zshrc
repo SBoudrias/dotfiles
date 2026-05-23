@@ -21,8 +21,6 @@ unset load_dotfiles
 
 export BREW_HOME="${BREW_HOME:-/opt/homebrew}"
 
-eval "$(pyenv init -)"
-
 # Load Autocompletion
 if type brew &>/dev/null; then
     FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
