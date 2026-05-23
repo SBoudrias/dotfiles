@@ -10,7 +10,7 @@ run_npm() {
         local packages="npm:yo@latest npm:ipt@latest"
 
         # Install packages globally through mise
-        if mise use -g -y $packages; then
+        if NPM_CONFIG_LOGLEVEL=error mise use -g -y $packages; then
             e_success "Done"
         else
             exit 1

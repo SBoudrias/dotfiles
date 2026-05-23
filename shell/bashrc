@@ -8,7 +8,7 @@
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 # 1password terminal plugins
-source ~/.config/op/plugins.sh
+[ -r "$HOME/.config/op/plugins.sh" ] && source "$HOME/.config/op/plugins.sh"
 
 # Added by Yarn Switch
 source "~/.yarn/switch/env"

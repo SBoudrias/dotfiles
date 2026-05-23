@@ -45,4 +45,4 @@ unset load_dotfiles
 
 export GPG_TTY=$(tty)
 
-. "$HOME/.cargo/env"
+[ -r "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
