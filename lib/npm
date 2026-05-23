@@ -2,20 +2,22 @@
 
 run_npm() {
 
-    # Check for npm
-    if type_exists 'volta'; then
+    # Check for mise
+    if type_exists 'mise'; then
         e_header "Installing Node.js packages..."
 
         # List of npm packages
-        local packages="yo ipt"
+        local packages="npm:yo@latest npm:ipt@latest"
 
-        # Install packages globally and quietly
-        volta install $packages
-
-        [[ $? ]] && e_success "Done"
+        # Install packages globally through mise
+        if mise use -g -y $packages; then
+            e_success "Done"
+        else
+            exit 1
+        fi
     else
         printf "\n"
-        e_error "Error: volta not found."
+        e_error "Error: mise not found."
         printf "Aborting...\n"
         exit
     fi

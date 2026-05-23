@@ -19,6 +19,8 @@ load_dotfiles() {
 load_dotfiles
 unset load_dotfiles
 
+export BREW_HOME="${BREW_HOME:-/opt/homebrew}"
+
 eval "$(pyenv init -)"
 
 # Load Autocompletion
@@ -34,3 +36,6 @@ ZSH_THEME="robbyrussell"
 
 # 1password terminal plugins
 source /Users/simon.boudrias/.config/op/plugins.sh
+
+# Setup mise
+eval "$("$BREW_HOME/bin/mise" activate zsh)"

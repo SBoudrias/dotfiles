@@ -107,8 +107,8 @@ else
     run_brew
 
     # Install Node packages
-    volta install node
-    corepack enable
+    mise use -g -y node@latest
+    mise exec node@latest -- corepack enable
     run_npm
 fi
 

@@ -69,7 +69,7 @@ Homebrew formulae:
 * [graphicsmagick](http://www.graphicsmagick.org/)
 * [jpeg](https://en.wikipedia.org/wiki/Libjpeg)
 * [macvim](http://code.google.com/p/macvim/)
-* [node](http://nodejs.org/)
+* [mise](https://mise.jdx.dev/) (manages Node.js)
 * [optipng](http://optipng.sourceforge.net/)
 * [phantomjs](http://phantomjs.org/)
 * [rsync](https://rsync.samba.org/) (latest version, rather than the out-dated OS X installation)
@@ -78,11 +78,7 @@ Homebrew formulae:
 
 Node packages:
 
-* [bower](http://bower.io/)
-* [gify](https://github.com/visionmedia/node-gify)
-* [grunt-cli](http://gruntjs.com/)
-* [jshint](http://www.jshint.com/)
-* [karma](http://karma-runner.github.io/)
+* [ipt](https://www.npmjs.com/package/ipt)
 * [yo](http://yeoman.io/)
 
 Vim plugins:

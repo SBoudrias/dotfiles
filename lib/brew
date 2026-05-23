@@ -35,7 +35,7 @@ run_brew() {
             'vim'
             'optipng'
             'tree'
-            'volta'
+            'mise'
             'wget'
             'watchman'
             'rust'
