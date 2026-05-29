@@ -4,9 +4,6 @@
 
 [ -n "$PS1" ] && source ~/.bash_profile
 
-# Load pyenv
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-
 # 1password terminal plugins
 [ -r "$HOME/.config/op/plugins.sh" ] && source "$HOME/.config/op/plugins.sh"
 
